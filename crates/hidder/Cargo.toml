@@ -1,36 +1,36 @@
 [package]
-name = "hidder"
-description = "no_std USB HID report descriptor generation, metadata, and optional parsing facade"
-version.workspace = true
-edition.workspace = true
+name                   = "hidder"
+description            = "no_std USB HID report descriptor generation, metadata, and optional parsing facade"
+version.workspace      = true
+edition.workspace      = true
 rust-version.workspace = true
-license.workspace = true
-authors.workspace = true
-repository.workspace = true
-homepage.workspace = true
-keywords.workspace = true
-categories.workspace = true
-publish.workspace = true
-readme = "README.md"
+license.workspace      = true
+authors.workspace      = true
+repository.workspace   = true
+homepage.workspace     = true
+keywords.workspace     = true
+categories.workspace   = true
+publish.workspace      = true
+readme                 = "README.md"
 
 [features]
-default = ["macros"]
-macros = ["dep:hidder-macros"]
-parser = ["dep:hidder-parser"]
+default = [ "macros" ]
+macros  = [ "dep:hidder-macros" ]
+parser  = [ "dep:hidder-parser" ]
 
 [dependencies]
-hidder-core.workspace = true
+hidder-core.workspace      = true
 hid-usage-tables.workspace = true
-hidder-macros = { workspace = true, optional = true }
-hidder-parser = { workspace = true, optional = true }
+hidder-macros              = { workspace = true, optional = true }
+hidder-parser              = { workspace = true, optional = true }
 
 [package.metadata.docs.rs]
 all-features = true
-rustdoc-args = ["--cfg", "docsrs"]
+rustdoc-args = [ "--cfg", "docsrs" ]
 
 [lints]
 workspace = true
 
 [[example]]
-name = "parse"
-required-features = ["parser"]
+name              = "parse"
+required-features = [ "parser" ]
