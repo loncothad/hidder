@@ -3,13 +3,15 @@ set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
 default:
     @just --list
 
-# Format Rust sources (nightly rustfmt; .rustfmt.toml uses unstable options).
+# Format Rust (nightly rustfmt) and TOML (taplo).
 fmt:
     cargo +nightly fmt --all
+    taplo format
 
 # Check formatting without writing.
 fmt-check:
     cargo +nightly fmt --all -- --check
+    taplo format --check
 
 # Lint the whole workspace; warnings are errors.
 clippy:
