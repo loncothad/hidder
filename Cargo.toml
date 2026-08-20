@@ -20,6 +20,7 @@ repository = "https://github.com/loncothad/hidder"
 homepage = "https://github.com/loncothad/hidder"
 keywords = ["usb", "hid", "no-std", "embedded", "parser"]
 categories = ["embedded", "no-std", "parser-implementations"]
+publish = true
 
 [workspace.dependencies]
 hidder-core = { path = "crates/hidder-core", version = "0.1.0" }
