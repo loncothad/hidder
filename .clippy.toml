@@ -1,0 +1,5 @@
+allow-dbg-in-tests = true
+
+[[standard-macro-braces]]
+brace = "["
+name  = "vec"

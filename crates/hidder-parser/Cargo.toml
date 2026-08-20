@@ -1,0 +1,23 @@
+[package]
+name = "hidder-parser"
+description = "Full no_std + alloc USB HID report descriptor parser and report layout builder"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "README.md"
+
+[features]
+default = []
+
+[dependencies]
+hidder-core.workspace = true
+hid-usage-tables.workspace = true
+
+[lints]
+workspace = true

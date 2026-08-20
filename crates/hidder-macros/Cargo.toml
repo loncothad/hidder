@@ -1,0 +1,22 @@
+[package]
+name = "hidder-macros"
+description = "Compile-time macros for human-readable USB HID report descriptors"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "README.md"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+hidder-dsl.workspace = true
+
+[lints]
+workspace = true

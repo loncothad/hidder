@@ -1,0 +1,12 @@
+# start,end,kind,label
+0x0013,0x0013,reserved,Reserved by HUT 1.7
+0x0015,0x001f,reserved,Reserved by HUT 1.7
+0x0021,0x003f,reserved,Reserved by HUT 1.7
+0x0042,0x0058,reserved,Reserved by HUT 1.7
+0x005a,0x007f,reserved,Reserved by HUT 1.7
+0x0083,0x0083,reserved,Reserved by HUT 1.7
+0x0086,0x008b,reserved,Reserved by HUT 1.7
+0x008f,0x008f,reserved,Reserved by HUT 1.7
+0x0093,0xf1cf,reserved,Reserved by HUT 1.7
+0xf1d1,0xfeff,reserved,Reserved by HUT 1.7
+0xff00,0xffff,vendor_defined,Vendor-defined usage pages

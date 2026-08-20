@@ -1,0 +1,19 @@
+[package]
+name = "hidder-core"
+description = "Allocation-free USB HID report descriptor item model, encoder, and streaming parser"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "README.md"
+
+[features]
+default = []
+
+[lints]
+workspace = true

@@ -1,0 +1,8 @@
+# page,id,alias,kind,note
+0x0007,0x0028,Keyboard Return (ENTER),specification,PDF table spelling
+0x0007,0x0028,Enter,search,Parenthetical key name
+0x0007,0x002a,Keyboard DELETE (Backspace),specification,PDF table spelling
+0x0007,0x002a,Backspace,search,Parenthetical key name
+0x0007,0x0031,Keyboard \ and |,specification,PDF table spelling
+0x0007,0x0032,Keyboard Non-US # and ~,specification,ASCII rendering of PDF table spelling
+0x0007,0x0058,Keypad ENTER,specification,PDF capitalization
