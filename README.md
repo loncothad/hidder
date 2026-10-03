@@ -188,14 +188,13 @@ cargo xtask update path/to/hut.pdf \
 ## Development commands
 
 Builds, tests, Clippy, catalog tooling, and embedded checks target stable Rust
-1.100.0. Development recipes use ordinary `cargo` commands without forcing beta.
+1.100.0 and use ordinary `cargo` commands without forcing beta.
 
 Formatting still requires nightly rustfmt (and Taplo for TOML): the existing
-`.rustfmt.toml` uses unstable options. Install nightly rustfmt with
-`rustup toolchain install nightly --profile minimal --component rustfmt`, then
-run `RUSTUP_TOOLCHAIN=nightly just fmt` or `RUSTUP_TOOLCHAIN=nightly just fmt-check`
-for formatting only. This formatter-only exception does not require nightly
-to build the workspace.
+`.rustfmt.toml` uses unstable options. Install it with
+`rustup toolchain install nightly --profile minimal --component rustfmt`.
+`just fmt` and `just fmt-check` select nightly only for formatting; nightly is
+not required to build the workspace.
 
 ```console
 just ci
