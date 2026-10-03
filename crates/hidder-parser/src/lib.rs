@@ -133,7 +133,7 @@ impl ReportLayout {
     #[must_use]
     pub const fn byte_len(self) -> u64 {
         self.bit_len / 8
-            + if self.bit_len % 8 == 0 {
+            + if self.bit_len.is_multiple_of(8) {
                 0
             } else {
                 1
@@ -1020,6 +1020,28 @@ mod tests {
         0x25, 0x01, 0x95, 0x03, 0x75, 0x01, 0x81, 0x02, 0x95, 0x01, 0x75, 0x05, 0x81, 0x01, 0x05, 0x01, 0x09, 0x30,
         0x09, 0x31, 0x15, 0x81, 0x25, 0x7F, 0x75, 0x08, 0x95, 0x02, 0x81, 0x06, 0xC0, 0xC0,
     ];
+
+    #[test]
+    fn report_byte_length_rounds_up_without_overflow() {
+        for (bit_len, expected) in [
+            (0, 0),
+            (1, 1),
+            (7, 1),
+            (8, 1),
+            (9, 2),
+            (16, 2),
+            (17, 3),
+            (u64::MAX, 1_u64 << 61),
+        ] {
+            let report = ReportLayout {
+                kind: ReportKind::Input,
+                id: 0,
+                bit_len,
+                field_count: 0,
+            };
+            assert_eq!(report.byte_len(), expected);
+        }
+    }
 
     #[test]
     fn builds_collection_and_report_layouts() {

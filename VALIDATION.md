@@ -25,9 +25,10 @@ The resulting checked-in catalog contains 36 page records, 2,770 named usage rec
 
 ## Build and test commands
 
-The workspace now requires Rust `1.100` and temporarily selects the `beta`
-toolchain until `1.100.0` is released. The compiler-backed development checks
-include:
+The workspace requires Rust `1.100` and targets the stable `1.100.0` release.
+That release is not yet available from rustup; local validation used Rust 1.100
+beta without pinning beta in the repository. The compiler-backed development
+checks include:
 
 ```console
 cargo test --workspace --all-features

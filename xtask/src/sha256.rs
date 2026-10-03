@@ -31,10 +31,10 @@ fn digest(input: &[u8]) -> [u8; 32] {
     padded[padded_len - 8 ..].copy_from_slice(&bit_len.to_be_bytes());
 
     let mut state = INITIAL;
-    for block in padded.chunks_exact(64) {
+    for block in padded.as_chunks::<64>().0 {
         let mut words = [0_u32; 64];
-        for (index, bytes) in block.chunks_exact(4).enumerate() {
-            words[index] = u32::from_be_bytes(bytes.try_into().unwrap());
+        for (index, bytes) in block.as_chunks::<4>().0.iter().enumerate() {
+            words[index] = u32::from_be_bytes(*bytes);
         }
         for index in 16 .. 64 {
             let s0 = words[index - 15].rotate_right(7) ^ words[index - 15].rotate_right(18) ^ (words[index - 15] >> 3);
@@ -88,6 +88,18 @@ mod tests {
         assert_eq!(
             digest_hex(b"abc"),
             "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+        );
+    }
+
+    #[test]
+    fn empty_and_multi_block_vectors() {
+        assert_eq!(
+            digest_hex(b""),
+            "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        );
+        assert_eq!(
+            digest_hex(b"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"),
+            "248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1"
         );
     }
 }
