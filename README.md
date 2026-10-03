@@ -18,7 +18,15 @@ The checked-in usage catalog is generated from the machine-readable attachment e
 | `hidder-parser` | `no_std + alloc` | Full semantic report-descriptor parser |
 | `xtask` | host `std` | Deterministic catalog generation and spec updates |
 
-There are no third-party Rust crate dependencies. The workspace MSRV is Rust 1.85.
+There are no third-party Rust crate dependencies. The workspace MSRV is Rust 1.100.
+
+Rust 1.100 is currently in beta, so `rust-toolchain.toml` temporarily selects
+`beta`. After Rust 1.100 is released, switch the channel to `1.100.0`; the MSRV
+remains `1.100`. Package editions remain Rust 2021.
+
+Rust 1.100 stabilizes the Allocator API, but this workspace has no raw allocation
+calls to migrate. Its existing `alloc` containers and allocation-free firmware
+APIs are unchanged; no custom-allocator parameters are added.
 
 ## Compile a descriptor
 
@@ -178,6 +186,13 @@ cargo xtask update path/to/hut.pdf \
 `update` uses Poppler's `pdfdetach`, verifies the JSON schema/version, computes SHA-256, rewrites the provenance manifest, regenerates deterministically, and rolls all changed files back if any step fails. Review and update the small CSV supplements because reserved page ranges, aliases, external pages, and deprecation annotations are not all represented in the embedded JSON.
 
 ## Development commands
+
+Builds, tests, Clippy, catalog tooling, and embedded checks use the selected
+Rust 1.100 beta toolchain. `just fmt` and `just fmt-check` still require nightly
+rustfmt (and Taplo for TOML): the existing `.rustfmt.toml` uses unstable formatting
+options. Install it with `rustup toolchain install nightly --profile minimal
+--component rustfmt`. This formatter-only exception does not require nightly
+to build the workspace.
 
 ```console
 just ci

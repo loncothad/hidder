@@ -1,5 +1,5 @@
 [toolchain]
-channel    = "1.85.1"
+channel    = "beta"
 components = [ "clippy", "rust-src", "rustfmt" ]
 profile    = "minimal"
 targets    = [ "thumbv7em-none-eabihf" ]

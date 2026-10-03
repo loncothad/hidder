@@ -60,5 +60,5 @@ examples:
     cargo run -p hidder-parser --example numbered
     cargo run -p hidder-parser --example stores
 
-# Full local CI gate (matches .github/workflows/ci.yml plus rustdoc -D).
+# Full local CI gate, including rustdoc with warnings denied.
 ci: fmt-check clippy test verify embedded doc

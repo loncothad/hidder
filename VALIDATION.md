@@ -25,7 +25,9 @@ The resulting checked-in catalog contains 36 page records, 2,770 named usage rec
 
 ## Build and test commands
 
-The included CI workflow pins Rust `1.85.1` and runs:
+The workspace now requires Rust `1.100` and temporarily selects the `beta`
+toolchain until `1.100.0` is released. The compiler-backed development checks
+include:
 
 ```console
 cargo test --workspace --all-features
@@ -38,4 +40,4 @@ cargo check -p hidder --no-default-features --target thumbv7em-none-eabihf
 cargo doc --workspace --all-features --no-deps
 ```
 
-The archive-packaging environment did not contain a Rust toolchain and could not reach a Rust distribution server, so those Cargo commands were not executed during packaging. The source/catalog/provenance and archive-integrity checks above were executed locally; the checked-in CI workflow is the compiler-backed validation path.
+The original archive-packaging environment did not contain a Rust toolchain and could not reach a Rust distribution server, so those Cargo commands were not executed during packaging. The source/catalog/provenance and archive-integrity checks above were executed locally. Run `just ci` for the current compiler-backed validation gate; formatting requires nightly rustfmt as described in the workspace README.
